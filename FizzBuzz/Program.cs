@@ -9,7 +9,10 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i <= 300; i++)
+            Console.WriteLine("How many rounds of FizzBuzz are we playing today?");
+            int max = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Ugh fine.");
+            for (int i = 1; i <= max; i++)
             {
                 List<string> parts = new List<string>();
                 
