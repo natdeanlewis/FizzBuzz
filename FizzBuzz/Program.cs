@@ -9,59 +9,42 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i < 201; i++)
+            for (int i = 1; i < 301; i++)
             {
-                var output = "";
+                List<string> parts = new List<string>();
+                
                 if (i % 3 == 0)
                 {
-                    output += "Fizz";
+                    parts.Add("Fizz");
                 }
                 if (i % 13 == 0)
                 {
-                    output += "Fezz";
+                    parts.Add("Fezz");
                 }
                 if (i % 5 == 0)
                 {
-                    output += "Buzz";
+                    parts.Add("Buzz");
                 }
                 if (i % 7 == 0)
                 {
-                    output += "Bang";
+                    parts.Add("Bang");
                 }
                 if (i % 11 == 0)
                 {
-                    output = "Bong";
-                    if (i % 13 == 0)
-                    {
-                        output = "Fezz" + output;
-                    }
+                    parts.RemoveAll(x => x != "Fezz");
+                    parts.Add("Bong");
                 }
+                if (i % 17 == 0)
+                {
+                    parts.Reverse();
+                }
+                string output = String.Join("", parts.ToArray());
                 if (output == "")
                 {
                     output = i.ToString();
                 }
                 Console.WriteLine(output);
             }
-                
-
-                
-/*            {
-                if (i % 15 == 0)
-                {
-                    Console.WriteLine("FizzBuzz");
-                } else if (i % 3 == 0)
-                {
-                    Console.WriteLine("Fizz");
-                } else if (i%5 == 0)
-                {
-                    Console.WriteLine("Buzz");
-                }
-                else
-                {
-                    Console.WriteLine(i.ToString());
-                }
-            }
-*/
         }
     }
 }
