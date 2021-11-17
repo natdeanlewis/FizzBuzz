@@ -9,17 +9,13 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i < 301; i++)
+            for (int i = 1; i <= 300; i++)
             {
                 List<string> parts = new List<string>();
                 
                 if (i % 3 == 0)
                 {
                     parts.Add("Fizz");
-                }
-                if (i % 13 == 0)
-                {
-                    parts.Add("Fezz");
                 }
                 if (i % 5 == 0)
                 {
@@ -31,8 +27,19 @@ namespace FizzBuzz
                 }
                 if (i % 11 == 0)
                 {
-                    parts.RemoveAll(x => x != "Fezz");
+                    parts.Clear();
                     parts.Add("Bong");
+                }
+                if (i % 13 == 0)
+                {
+                    int index = parts.FindIndex(a => a[0] == 'B');
+                    if (index == -1)
+                    {
+                        parts.Add("Fezz");
+                    } else 
+                    {
+                        parts.Insert(index, "Fezz");
+                    }
                 }
                 if (i % 17 == 0)
                 {
